@@ -106,16 +106,15 @@
 		height: 28px;
 		border-radius: 8px;
 		background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		display: grid;
+		place-items: center;
 		font-family: 'Playfair Display', Georgia, serif;
 		font-size: 1rem;
 		font-weight: 700;
 		font-style: italic;
 		color: var(--bg);
 		line-height: 1;
-		padding-top: 1px;
+		padding-right: 1px;
 	}
 
 	.logo-text {
