@@ -115,6 +115,7 @@
 		color: var(--bg);
 		line-height: 1;
 		padding-right: 1px;
+		padding-bottom: 2px;
 	}
 
 	.logo-text {

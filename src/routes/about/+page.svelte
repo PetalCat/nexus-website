@@ -37,9 +37,9 @@
 		<div class="prose" use:reveal={{ delay: 60 }}>
 			<h2>Open Source</h2>
 			<p>
-				Nexus is MIT-licensed and developed in the open. The full source is on GitHub. Contributions,
-				bug reports, and feedback are welcome. The project is built to be self-hosted without
-				lock-in, and the license reflects that.
+				Nexus is licensed under the AGPL-3.0 and developed in the open. The full source is on
+				GitHub. Contributions, bug reports, and feedback are welcome. The copyleft license
+				ensures that any derivative work remains open source too.
 			</p>
 		</div>
 
