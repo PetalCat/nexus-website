@@ -88,9 +88,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 0.65rem;
-		font-weight: 900;
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 0.85rem;
+		font-weight: 700;
+		font-style: italic;
 		color: var(--bg);
+		line-height: 1;
+		padding-top: 1px;
 	}
 
 	.footer-tagline {

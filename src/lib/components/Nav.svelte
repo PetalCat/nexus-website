@@ -109,9 +109,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 0.8rem;
-		font-weight: 900;
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 1rem;
+		font-weight: 700;
+		font-style: italic;
 		color: var(--bg);
+		line-height: 1;
+		padding-top: 1px;
 	}
 
 	.logo-text {
