@@ -33,9 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # pnpm version comes from packageManager in package.json —
+      # passing a `version` here would conflict.
       - uses: pnpm/action-setup@v4
-        with:
-          version: latest
 
       - uses: actions/setup-node@v4
         with:
