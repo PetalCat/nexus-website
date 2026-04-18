@@ -15,6 +15,11 @@
 			description: 'Core media server integration. Handles library browsing, HLS streaming, user authentication, and live session monitoring.',
 		},
 		{
+			name: 'Plex',
+			category: 'Media Server',
+			description: 'Plex Media Server integration. Movies, shows, music, and playback via HLS with the same UI and negotiation path as Jellyfin.',
+		},
+		{
 			name: 'Sonarr',
 			category: 'Automation',
 			description: 'TV show management and monitoring. Tracks series, seasons, and episodes with automatic download handling.',
@@ -35,9 +40,9 @@
 			description: 'Media request management. Users request content, admins approve or deny from a unified queue with status tracking.',
 		},
 		{
-			name: 'Kavita',
+			name: 'Calibre-Web',
 			category: 'Books',
-			description: 'Book and manga library server. Reading progress, collections, and series browsing integrated directly into Nexus.',
+			description: 'Book library integration via OPDS. Browse, search, and read EPUBs / PDFs in-browser with reading-progress sync.',
 		},
 		{
 			name: 'RomM',

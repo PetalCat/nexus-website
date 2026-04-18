@@ -37,8 +37,8 @@
 
 	const dockerCode = `<span class="t-prompt">$</span> docker run <span class="t-flag">-d</span> \\
     <span class="t-flag">--name</span> <span class="t-val">nexus</span> \\
-    <span class="t-flag">-p</span> <span class="t-val">3000:3000</span> \\
-    <span class="t-flag">-v</span> <span class="t-val">nexus-data:/data</span> \\
+    <span class="t-flag">-p</span> <span class="t-val">8585:8585</span> \\
+    <span class="t-flag">-v</span> <span class="t-val">nexus-data:/app/data</span> \\
     ghcr.io/petalcat/nexus:latest`;
 </script>
 

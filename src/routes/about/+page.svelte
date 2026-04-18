@@ -46,15 +46,15 @@
 		<div class="link-cards" use:reveal={{ delay: 80 }}>
 			<h3>Community</h3>
 			<div class="card-row">
-				<a href="https://github.com/petalcat/nexus" class="link-card" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/PetalCat/Nexus" class="link-card" target="_blank" rel="noopener noreferrer">
 					<span class="link-card-title">GitHub</span>
 					<span class="link-card-desc">Source code, releases, and development history</span>
 				</a>
-				<a href="https://github.com/petalcat/nexus/issues" class="link-card" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/PetalCat/Nexus/issues" class="link-card" target="_blank" rel="noopener noreferrer">
 					<span class="link-card-title">Issues</span>
 					<span class="link-card-desc">Bug reports and feature requests</span>
 				</a>
-				<a href="https://github.com/petalcat/nexus/discussions" class="link-card" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/PetalCat/Nexus/discussions" class="link-card" target="_blank" rel="noopener noreferrer">
 					<span class="link-card-title">Discussions</span>
 					<span class="link-card-desc">Questions, ideas, and community conversation</span>
 				</a>

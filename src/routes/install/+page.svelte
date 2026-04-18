@@ -10,8 +10,8 @@
 
 	const dockerRunCode = `<span class="t-prompt">$</span> docker run <span class="t-flag">-d</span> \\
     <span class="t-flag">--name</span> <span class="t-val">nexus</span> \\
-    <span class="t-flag">-p</span> <span class="t-val">3000:3000</span> \\
-    <span class="t-flag">-v</span> <span class="t-val">nexus-data:/data</span> \\
+    <span class="t-flag">-p</span> <span class="t-val">8585:8585</span> \\
+    <span class="t-flag">-v</span> <span class="t-val">nexus-data:/app/data</span> \\
     <span class="t-val">ghcr.io/petalcat/nexus:latest</span>`;
 
 	const dockerComposeCode = `<span class="t-prompt">#</span> compose.yml
@@ -19,19 +19,22 @@ services:
   nexus:
     image: <span class="t-val">ghcr.io/petalcat/nexus:latest</span>
     ports:
-      - <span class="t-val">"3000:3000"</span>
+      - <span class="t-val">"8585:8585"</span>
     volumes:
-      - <span class="t-val">nexus-data:/data</span>
+      - <span class="t-val">nexus-data:/app/data</span>
+    environment:
+      <span class="t-prompt">#</span> Optional: set ORIGIN when behind a reverse proxy
+      <span class="t-flag">ORIGIN</span>: <span class="t-val">http://localhost:8585</span>
     restart: <span class="t-val">unless-stopped</span>
 
 volumes:
   nexus-data:`;
 
-	const sourceCode = `<span class="t-prompt">$</span> git clone <span class="t-val">https://github.com/petalcat/nexus</span>
-<span class="t-prompt">$</span> cd <span class="t-val">nexus</span>
+	const sourceCode = `<span class="t-prompt">$</span> git clone <span class="t-val">https://github.com/PetalCat/Nexus</span>
+<span class="t-prompt">$</span> cd <span class="t-val">Nexus</span>
 <span class="t-prompt">$</span> pnpm install
 <span class="t-prompt">$</span> pnpm build
-<span class="t-prompt">$</span> node <span class="t-val">build</span>`;
+<span class="t-prompt">$</span> PORT=8585 node <span class="t-val">build</span>`;
 </script>
 
 <section class="hero">
@@ -51,7 +54,7 @@ volumes:
 				<h2>Quick Start</h2>
 				<p>The fastest way to get Nexus running. One command pulls and starts the latest image.</p>
 			</div>
-			<TerminalCard code={dockerRunCode} comment="Nexus will be available at http://localhost:3000" />
+			<TerminalCard code={dockerRunCode} comment="Nexus will be available at http://localhost:8585" />
 		</div>
 
 		<div class="install-block" use:reveal={{ delay: 60 }}>
@@ -69,7 +72,7 @@ volumes:
 				<h2>From Source</h2>
 				<p>Build and run directly from the repository. Useful for development or if you want full control.</p>
 			</div>
-			<TerminalCard code={sourceCode} comment="Available at http://localhost:3000 after start" />
+			<TerminalCard code={sourceCode} comment="Available at http://localhost:8585 after start" />
 		</div>
 
 		<div class="requirements" use:reveal={{ delay: 60 }}>
@@ -89,7 +92,7 @@ volumes:
 				</div>
 				<div class="req-item">
 					<span class="req-label">First Run</span>
-					<span class="req-val">Open browser to port 3000</span>
+					<span class="req-val">Open browser to port 8585</span>
 				</div>
 			</div>
 		</div>
