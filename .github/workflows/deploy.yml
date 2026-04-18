@@ -1,0 +1,63 @@
+# Build and deploy the Nexus marketing site to GitHub Pages.
+#
+# Triggers on every push to main (and on manual dispatch). Uses
+# SvelteKit's adapter-static to produce the full static bundle in
+# `build/`, then hands it to the official GitHub Pages deploy action.
+#
+# Custom-domain deploy: `static/CNAME` contains the domain (currently
+# nexus.petalcat.dev). SvelteKit copies static/* into build/ on build,
+# so the CNAME file lands where Pages expects it.
+#
+# Security note: all ${{ }} expansions below are either action outputs
+# (steps.deployment.outputs.page_url) or runner-controlled env —
+# no user-supplied input reaches any run: step, so no injection surface.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
