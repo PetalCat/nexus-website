@@ -2,7 +2,7 @@
 
 Marketing + documentation site for [Nexus](https://github.com/PetalCat/Nexus) — the unified self-hosted media frontend.
 
-- **Live:** https://nexus.petalcat.dev
+- **Live:** https://nexus.petalcat.net
 - **Stack:** SvelteKit + Tailwind 4, `@sveltejs/adapter-static`
 - **Hosting:** GitHub Pages (auto-deploy from `main` via `.github/workflows/deploy.yml`)
 - **License:** [AGPL-3.0](LICENSE), matching the Nexus app
