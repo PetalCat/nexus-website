@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 
-	const COLUMN_COUNT = 10;
+	const COLUMN_COUNT = 12;
 	// Number of posters rendered per column. Needs to be tall enough that
 	// the column fills the viewport height after rotate/scale. 8 is enough
 	// for a ~1200px viewport at 156px per slot × 1.4 scale.
@@ -243,20 +243,21 @@
 	.vignette {
 		position: absolute;
 		inset: 0;
-		/* Keep the hero text legible without blacking out the posters. The
-		   center reads as a softly dimmed area; edges fade to the page
-		   background so the rain blends into the next section. */
+		/* Tiny corner vignette. Heavy center-dim lives on
+		   `.hero-content::before` (see +page.svelte) so the posters read
+		   cleanly across the whole viewport; this just softens the four
+		   corners and fades the bottom edge into the next section. */
 		background:
 			radial-gradient(
-				ellipse 55% 45% at 50% 45%,
-				rgba(5, 5, 7, 0.55) 0%,
-				rgba(5, 5, 7, 0.15) 60%,
-				rgba(5, 5, 7, 0.05) 90%
+				ellipse 140% 120% at 50% 50%,
+				rgba(5, 5, 7, 0) 55%,
+				rgba(5, 5, 7, 0.35) 85%,
+				rgba(5, 5, 7, 0.7) 100%
 			),
 			linear-gradient(
 				to bottom,
 				rgba(5, 5, 7, 0) 0%,
-				rgba(5, 5, 7, 0) 65%,
+				rgba(5, 5, 7, 0) 72%,
 				#050507 100%
 			);
 		pointer-events: none;

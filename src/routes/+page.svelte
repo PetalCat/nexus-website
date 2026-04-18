@@ -50,7 +50,7 @@
 	<div class="hero-content">
 		<div class="hero-badge" use:reveal>
 			<span class="badge-dot"></span>
-			Open Source &amp; Self-Hosted
+			Public Beta · v0.1.0-beta.3 · Open Source
 		</div>
 		<h1 use:reveal={{ delay: 80 }}>
 			All your media.<br />
@@ -108,7 +108,7 @@
 			<StepCard
 				number={1}
 				title="Connect your services"
-				description="Add your Jellyfin, Plex, Sonarr, Radarr, Kavita, Romm, and other services from the admin panel. Nexus links automatically where it can."
+				description="Add your Jellyfin, Plex, Sonarr, Radarr, Calibre-Web, RomM, and other services from the admin panel. Nexus links automatically where it can."
 				delay={0}
 			/>
 			<StepCard
@@ -193,6 +193,9 @@
 		justify-content: center;
 		text-align: center;
 		overflow: hidden;
+		/* Nudge the content down so the h1 sits clear of the fixed nav.
+		   Nav height ~72px + breathing room. */
+		padding-top: 6rem;
 	}
 
 	.hero-content {
@@ -204,6 +207,26 @@
 		gap: 1.5rem;
 		padding: 2rem 1.5rem;
 		max-width: 820px;
+	}
+
+	/* Dark halo behind the hero text so it reads against the bright
+	   poster rain. Stretched vertically to fully cover h1 + sub +
+	   CTA row; fades to transparent at the edges so posters still
+	   show through at the corners of the viewport. */
+	.hero-content::before {
+		content: '';
+		position: absolute;
+		inset: -12% -18%;
+		background: radial-gradient(
+			ellipse 60% 70% at center,
+			rgba(5, 5, 7, 0.9) 0%,
+			rgba(5, 5, 7, 0.75) 40%,
+			rgba(5, 5, 7, 0.35) 70%,
+			rgba(5, 5, 7, 0) 100%
+		);
+		z-index: -1;
+		pointer-events: none;
+		filter: blur(4px); /* softens the halo edges so it doesn't read as an oval panel */
 	}
 
 	.hero-badge {
@@ -241,6 +264,13 @@
 		line-height: 1.05;
 		letter-spacing: -0.04em;
 		color: var(--text);
+		/* drop-shadow operates on rendered pixels, not the text fill —
+		   so it plays nice with the gradient-clipped "One home." span
+		   below (text-shadow would render over the transparent fill
+		   and turn the gradient letters into muddy grey). */
+		filter:
+			drop-shadow(0 2px 10px rgba(0, 0, 0, 0.85))
+			drop-shadow(0 8px 40px rgba(0, 0, 0, 0.55));
 	}
 
 	.hero-sub {
@@ -248,6 +278,7 @@
 		color: var(--text-muted);
 		line-height: 1.7;
 		max-width: 560px;
+		filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.75));
 	}
 
 	.hero-ctas {

@@ -72,7 +72,13 @@
 		right: 0;
 		z-index: 100;
 		padding: 1rem 0;
-		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		/* Solid black at the top of the page so the poster rain doesn't
+		   bleed behind the logo/links. When scrolled we switch to the
+		   translucent blurred bar below, which reads better against
+		   subsequent dark sections. */
+		background: #050507;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+		transition: background 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
 	}
 
 	.nav.scrolled {

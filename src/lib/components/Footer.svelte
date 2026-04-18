@@ -27,11 +27,22 @@
 			<div class="footer-col">
 				<h4>Legal</h4>
 				<a href="/about">About</a>
+				<a href="/credits">Credits</a>
+				<a href="https://github.com/PetalCat/Nexus/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
 			</div>
 		</div>
 
 		<div class="footer-bottom">
-			<p>&copy; {new Date().getFullYear()} Nexus by PetalCat. <a href="https://github.com/PetalCat/Nexus" target="_blank" rel="noopener">Open source.</a></p>
+			<p>
+				&copy; {new Date().getFullYear()} PetalCat and Nexus contributors.
+				Licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">AGPL-3.0</a>.
+				Source on <a href="https://github.com/PetalCat/Nexus" target="_blank" rel="noopener">GitHub</a>.
+			</p>
+			<p class="attribution">
+				Poster art sourced from <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>
+				under verified public-domain status &mdash; see <a href="/credits">credits</a>.
+				Third-party trademarks belong to their respective owners; Nexus is not affiliated with or endorsed by them.
+			</p>
 		</div>
 	</div>
 </footer>
@@ -135,8 +146,11 @@
 		text-align: center;
 	}
 
-	.footer-bottom p { color: var(--text-muted); font-size: 0.8rem; }
-	.footer-bottom a { color: inherit; text-decoration: underline; }
+	.footer-bottom p { color: var(--text-muted); font-size: 0.8rem; margin: 0 auto; max-width: 780px; line-height: 1.65; }
+	.footer-bottom p + p { margin-top: 0.75rem; }
+	.footer-bottom .attribution { font-size: 0.72rem; color: rgba(180, 180, 185, 0.55); }
+	.footer-bottom a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+	.footer-bottom a:hover { color: var(--accent); }
 
 	@media (max-width: 768px) {
 		.footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }

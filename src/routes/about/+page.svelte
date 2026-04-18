@@ -21,7 +21,7 @@
 			<h2>What Nexus is</h2>
 			<p>
 				Nexus is a unified media frontend for people who self-host their own services. It sits on
-				top of your existing stack — Jellyfin, Sonarr, Radarr, Kavita, RomM, Bazarr, and more —
+				top of your existing stack — Jellyfin, Plex, Sonarr, Radarr, Calibre-Web, RomM, Bazarr, and more —
 				and brings everything into a single, coherent interface. You browse your movies, books,
 				games, and music in one place, with one login, without switching between a dozen different
 				apps.
